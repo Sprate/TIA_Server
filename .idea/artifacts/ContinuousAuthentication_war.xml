@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ContinuousAuthentication:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ContinuousAuthentication.war">
+      <element id="artifact" artifact-name="ContinuousAuthentication:war exploded" />
+    </root>
+  </artifact>
+</component>

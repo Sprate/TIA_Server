@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qsf.dao.UserTouchMapper" >
+  <resultMap id="BaseResultMap" type="qsf.entity.UserTouch" >
+    <result column="userId" property="userid" jdbcType="VARCHAR" />
+    <result column="start_x" property="startX" jdbcType="REAL" />
+    <result column="start_y" property="startY" jdbcType="REAL" />
+    <result column="end_x" property="endX" jdbcType="REAL" />
+    <result column="end_y" property="endY" jdbcType="REAL" />
+    <result column="direct_end_to_end_distance" property="directEndToEndDistance" jdbcType="REAL" />
+    <result column="duration" property="duration" jdbcType="REAL" />
+    <result column="mean_length" property="meanLength" jdbcType="REAL" />
+    <result column="twenty_velocity" property="twentyVelocity" jdbcType="REAL" />
+    <result column="fifty_velocity" property="fiftyVelocity" jdbcType="REAL" />
+    <result column="eighty_velocity" property="eightyVelocity" jdbcType="REAL" />
+    <result column="mean_velocity" property="meanVelocity" jdbcType="REAL" />
+    <result column="twenty_acceleration" property="twentyAcceleration" jdbcType="REAL" />
+    <result column="fifty_acceleration" property="fiftyAcceleration" jdbcType="REAL" />
+    <result column="eighty_acceleration" property="eightyAcceleration" jdbcType="REAL" />
+    <result column="direction_end_to_end_line" property="directionEndToEndLine" jdbcType="REAL" />
+    <result column="trajectory_length" property="trajectoryLength" jdbcType="REAL" />
+    <result column="pressure_middle_stroke" property="pressureMiddleStroke" jdbcType="REAL" />
+    <result column="middle_stroke_area" property="middleStrokeArea" jdbcType="REAL" />
+    <result column="ratio_distance_traj" property="ratioDistanceTraj" jdbcType="REAL" />
+    <result column="phone_orientation" property="phoneOrientation" jdbcType="REAL" />
+    <result column="flag_direction" property="flagDirection" jdbcType="REAL" />
+    <result column="largest_deviation" property="largestDeviation" jdbcType="REAL" />
+    <result column="twenty_deviation" property="twentyDeviation" jdbcType="REAL" />
+    <result column="fifty_deviation" property="fiftyDeviation" jdbcType="REAL" />
+    <result column="eighty_deviation" property="eightyDeviation" jdbcType="REAL" />
+    <result column="time_stamp" property="timestamp" jdbcType="REAL" />
+  </resultMap>
+  <insert id="insert" parameterType="qsf.entity.UserTouch" >
+    insert into user_touch (userId, start_x, start_y, 
+      end_x, end_y, direct_end_to_end_distance, 
+      duration, mean_length, twenty_velocity, 
+      fifty_velocity, eighty_velocity, mean_velocity, 
+      twenty_acceleration, fifty_acceleration, eighty_acceleration, 
+      direction_end_to_end_line, trajectory_length, pressure_middle_stroke, 
+      middle_stroke_area, ratio_distance_traj, phone_orientation, 
+      flag_direction, largest_deviation, twenty_deviation, 
+      fifty_deviation, eighty_deviation,time_stamp)
+    values (#{userid,jdbcType=VARCHAR}, #{startX,jdbcType=REAL}, #{startY,jdbcType=REAL}, 
+      #{endX,jdbcType=REAL}, #{endY,jdbcType=REAL}, #{directEndToEndDistance,jdbcType=REAL}, 
+      #{duration,jdbcType=REAL}, #{meanLength,jdbcType=REAL}, #{twentyVelocity,jdbcType=REAL}, 
+      #{fiftyVelocity,jdbcType=REAL}, #{eightyVelocity,jdbcType=REAL}, #{meanVelocity,jdbcType=REAL}, 
+      #{twentyAcceleration,jdbcType=REAL}, #{fiftyAcceleration,jdbcType=REAL}, #{eightyAcceleration,jdbcType=REAL}, 
+      #{directionEndToEndLine,jdbcType=REAL}, #{trajectoryLength,jdbcType=REAL}, #{pressureMiddleStroke,jdbcType=REAL}, 
+      #{middleStrokeArea,jdbcType=REAL}, #{ratioDistanceTraj,jdbcType=REAL}, #{phoneOrientation,jdbcType=REAL}, 
+      #{flagDirection,jdbcType=REAL}, #{largestDeviation,jdbcType=REAL}, #{twentyDeviation,jdbcType=REAL}, 
+      #{fiftyDeviation,jdbcType=REAL}, #{eightyDeviation,jdbcType=REAL},#{timestamp,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="qsf.entity.UserTouch" >
+    insert into user_touch
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="startX != null" >
+        start_x,
+      </if>
+      <if test="startY != null" >
+        start_y,
+      </if>
+      <if test="endX != null" >
+        end_x,
+      </if>
+      <if test="endY != null" >
+        end_y,
+      </if>
+      <if test="directEndToEndDistance != null" >
+        direct_end_to_end_distance,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+      <if test="meanLength != null" >
+        mean_length,
+      </if>
+      <if test="twentyVelocity != null" >
+        twenty_velocity,
+      </if>
+      <if test="fiftyVelocity != null" >
+        fifty_velocity,
+      </if>
+      <if test="eightyVelocity != null" >
+        eighty_velocity,
+      </if>
+      <if test="meanVelocity != null" >
+        mean_velocity,
+      </if>
+      <if test="twentyAcceleration != null" >
+        twenty_acceleration,
+      </if>
+      <if test="fiftyAcceleration != null" >
+        fifty_acceleration,
+      </if>
+      <if test="eightyAcceleration != null" >
+        eighty_acceleration,
+      </if>
+      <if test="directionEndToEndLine != null" >
+        direction_end_to_end_line,
+      </if>
+      <if test="trajectoryLength != null" >
+        trajectory_length,
+      </if>
+      <if test="pressureMiddleStroke != null" >
+        pressure_middle_stroke,
+      </if>
+      <if test="middleStrokeArea != null" >
+        middle_stroke_area,
+      </if>
+      <if test="ratioDistanceTraj != null" >
+        ratio_distance_traj,
+      </if>
+      <if test="phoneOrientation != null" >
+        phone_orientation,
+      </if>
+      <if test="flagDirection != null" >
+        flag_direction,
+      </if>
+      <if test="largestDeviation != null" >
+        largest_deviation,
+      </if>
+      <if test="twentyDeviation != null" >
+        twenty_deviation,
+      </if>
+      <if test="fiftyDeviation != null" >
+        fifty_deviation,
+      </if>
+      <if test="eightyDeviation != null" >
+        eighty_deviation,
+      </if>
+      <if test="timestamp != null" >
+        time_stamp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="startX != null" >
+        #{startX,jdbcType=REAL},
+      </if>
+      <if test="startY != null" >
+        #{startY,jdbcType=REAL},
+      </if>
+      <if test="endX != null" >
+        #{endX,jdbcType=REAL},
+      </if>
+      <if test="endY != null" >
+        #{endY,jdbcType=REAL},
+      </if>
+      <if test="directEndToEndDistance != null" >
+        #{directEndToEndDistance,jdbcType=REAL},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=REAL},
+      </if>
+      <if test="meanLength != null" >
+        #{meanLength,jdbcType=REAL},
+      </if>
+      <if test="twentyVelocity != null" >
+        #{twentyVelocity,jdbcType=REAL},
+      </if>
+      <if test="fiftyVelocity != null" >
+        #{fiftyVelocity,jdbcType=REAL},
+      </if>
+      <if test="eightyVelocity != null" >
+        #{eightyVelocity,jdbcType=REAL},
+      </if>
+      <if test="meanVelocity != null" >
+        #{meanVelocity,jdbcType=REAL},
+      </if>
+      <if test="twentyAcceleration != null" >
+        #{twentyAcceleration,jdbcType=REAL},
+      </if>
+      <if test="fiftyAcceleration != null" >
+        #{fiftyAcceleration,jdbcType=REAL},
+      </if>
+      <if test="eightyAcceleration != null" >
+        #{eightyAcceleration,jdbcType=REAL},
+      </if>
+      <if test="directionEndToEndLine != null" >
+        #{directionEndToEndLine,jdbcType=REAL},
+      </if>
+      <if test="trajectoryLength != null" >
+        #{trajectoryLength,jdbcType=REAL},
+      </if>
+      <if test="pressureMiddleStroke != null" >
+        #{pressureMiddleStroke,jdbcType=REAL},
+      </if>
+      <if test="middleStrokeArea != null" >
+        #{middleStrokeArea,jdbcType=REAL},
+      </if>
+      <if test="ratioDistanceTraj != null" >
+        #{ratioDistanceTraj,jdbcType=REAL},
+      </if>
+      <if test="phoneOrientation != null" >
+        #{phoneOrientation,jdbcType=REAL},
+      </if>
+      <if test="flagDirection != null" >
+        #{flagDirection,jdbcType=REAL},
+      </if>
+      <if test="largestDeviation != null" >
+        #{largestDeviation,jdbcType=REAL},
+      </if>
+      <if test="twentyDeviation != null" >
+        #{twentyDeviation,jdbcType=REAL},
+      </if>
+      <if test="fiftyDeviation != null" >
+        #{fiftyDeviation,jdbcType=REAL},
+      </if>
+      <if test="eightyDeviation != null" >
+        #{eightyDeviation,jdbcType=REAL},
+      </if>
+      <if test="timestamp != null" >
+        #{timestamp,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="countUserTouchByUid" resultType="java.lang.Long">
+    select COUNT(*)
+    from user_touch
+    where userId = #{userId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectUid" resultMap="BaseResultMap">
+    select *
+    from user_touch
+    where userId = #{userId,jdbcType=VARCHAR}
+    ORDER by time_stamp DESC  limit 0, #{maxNum, jdbcType=INTEGER}
+
+  </select>
+
+
+  <select id="getOtherUserTouchs" resultMap="BaseResultMap">
+    select *
+    from user_touch
+    where userId&lt;&gt;#{userId,jdbcType=VARCHAR}
+    ORDER by time_stamp DESC  limit 0, #{dataNum, jdbcType=BIGINT}
+  </select>
+
+
+</mapper>
